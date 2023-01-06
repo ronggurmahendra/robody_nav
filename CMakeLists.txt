@@ -141,6 +141,9 @@ include
 add_executable(point_cloud_node src/point_cloud_node.cpp)
 target_link_libraries(point_cloud_node ${catkin_LIBRARIES})
 
+add_executable(motor_controller_node src/motor_controller_node.cpp)
+target_link_libraries(motor_controller_node ${catkin_LIBRARIES})
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
