@@ -14,8 +14,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
+  cv_bridge
+  image_transport
 )
-
+find_package(OpenCV 4 REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -108,7 +110,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
  INCLUDE_DIRS include
  LIBRARIES navigation_package
- CATKIN_DEPENDS pcl_conversions pcl_ros roscpp rospy sensor_msgs std_msgs
+ CATKIN_DEPENDS pcl_conversions pcl_ros roscpp rospy sensor_msgs std_msgs cv_bridge image_transport
  DEPENDS system_lib
 )
 
@@ -121,6 +123,7 @@ catkin_package(
 include_directories(
 include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -143,6 +146,9 @@ target_link_libraries(point_cloud_node ${catkin_LIBRARIES})
 
 add_executable(motor_controller_node src/motor_controller_node.cpp)
 target_link_libraries(motor_controller_node ${catkin_LIBRARIES})
+
+add_executable(potential_field_node src/potential_field_node.cpp)
+target_link_libraries(potential_field_node ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
