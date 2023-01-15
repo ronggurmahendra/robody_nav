@@ -147,6 +147,9 @@ target_link_libraries(point_cloud_node ${catkin_LIBRARIES})
 add_executable(motor_controller_node src/motor_controller_node.cpp)
 target_link_libraries(motor_controller_node ${catkin_LIBRARIES})
 
+add_executable(manual_node src/manual_node.cpp)
+target_link_libraries(manual_node ${catkin_LIBRARIES})
+
 add_executable(potential_field_node src/potential_field_node.cpp)
 target_link_libraries(potential_field_node ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
 

@@ -4,13 +4,15 @@
     <!-- Set any desired parameters for the motor controller node here -->
   </node>
 
-  <!-- Run the cloud point node -->
-  <node pkg="navigation_package" name="cloud_point_node_entity" type="point_cloud_node">
-    <!-- Set any desired parameters for the cloud point node here -->
-  </node>
 
-    <!-- Run the cloud point node -->
+    <!-- Run the potential field node -->
   <node pkg="navigation_package" name="potential_field_node_entity" type="potential_field_node">
     <!-- Set any desired parameters for the cloud point node here -->
   </node>
+
+  <!-- Run the manual node -->
+  <node pkg="navigation_package" name="manual_node_entity" type="manual_node">
+    <!-- Set any desired parameters for the cloud point node here -->
+  </node>
+
 </launch>
